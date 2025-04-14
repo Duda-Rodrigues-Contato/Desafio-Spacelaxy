@@ -1,0 +1,24 @@
+Sistema CRUD:
+
+C - Create:
+- Registrar viajantes temporais (reputação inicial de 100 e status "ativos" ou "inativos");
+- Criar um evento histórico (data completa, descrição e era - primitiva, média, tecnologica, pós-humana);
+- Prender um viajante por 30 dias caso tenha 3 interferências seguidas negadas adicionando motivo. Após 30 dias, liberar ele e removê-lo (delete) da prisão.
+
+R - Read:
+- Listar todos os eventos históricos gerais;
+- Listar todos os eventos históricos por era;
+- Listar todas as viagens no tempo, mostrando seu status etc;
+    Filtrar as viagens no tempo por viajantes 
+- Listar todas as viagens de um viajante.
+
+U - Update:
+- Registrar em algum evento histórico uma interferência corporal (correção ou modificação) que algum viajante do tempo causou;
+    Nessas interferências, verificar a reputação do viajante do tempo:
+    Caso viajante tenha reputação inferior a 30: Negar automaticamente.
+    Caso viajante tenha reputação maior que 90: Aprovar automaticamente.
+    Caso não se aplique em nenhuma dessas regras: Adicionar na categoria "em análise".
+OBS1: Caso a interferência for negada, reduzir a reputação do viajante em -10.
+OBS2: Caso a interferência for aprovada, aumentar a reputação do viajante em +5.
+
+D - Delete:
