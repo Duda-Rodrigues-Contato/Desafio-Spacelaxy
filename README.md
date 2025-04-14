@@ -1,11 +1,11 @@
 # Desafio "O Tribunal do Tempo"
 
-## História: 
+## 📖 História: 
 Você é o juiz de um tribunal do tempo, uma divisão de autoridade cronológica que registra os viajantes temporais e monitora as interferências deles em eventos históricos, correções autorizadas e também prisões por alteração indevida da linha do tempo.
 
 ---
 
-## O Que Fazer?
+## 🧐❓ O Que Fazer?
 
 **Pra facilitar sua vida, você resolveu criar uma API com as seguintes coisas:**
 
@@ -27,6 +27,6 @@ Em resumo, tem que ser um CRUD com todas as coisas de remover, registrar e etc. 
 
 Claro que tem que ter também uma rota pra realizar uma viagem pra um viajante, mas fica à disposição qualquer outra rota ou outra coisa que vocês quiserem adicionar, só precisa seguir as regras básicas desse desafio.<br/>
 
-## Créditos: ##
+## ©️ Créditos: ##
 Esse desafio foi feito no canal **"Spacelaxy"** no Discord. Todos os créditos à eles.<br/>
 **Link: https://discord.gg/spacelaxy**. 
