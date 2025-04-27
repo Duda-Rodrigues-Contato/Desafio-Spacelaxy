@@ -30,7 +30,7 @@ O agente J solicitou que você criasse um relatório que retornasse uma tabela e
 
 ## 🧐❓ O Que Fazer?
 
-**Você deverá usar uma .JSON para carregar os dados que estão no repositório do desafio (link: [text](https://gist.github.com/henrythierrydev/81ced785d8471aa02078966195143c2a)).** 
+**Você deverá usar uma .JSON para carregar os dados que estão no repositório do desafio (link: [link para o repositório](https://gist.github.com/henrythierrydev/81ced785d8471aa02078966195143c2a)).** 
 
 **1** - Primeiro, você deve fazer uma validação se todos os dados estão presentes em cada coisa e também verificar o tipo dele. Por exemplo, o dado birthDate deve sempre estar no formato dia-mês-ano. Você **não** pode usar bibliotecas para isso e deve usar a File System para carregar todos os dados. Cada campo no objeto dos dados deve ser validado conforme o exemplo no final da descrição. </br>
 
