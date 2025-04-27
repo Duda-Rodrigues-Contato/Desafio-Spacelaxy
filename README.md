@@ -1,32 +1,55 @@
-# Desafio "O Tribunal do Tempo"
+# ©️ Créditos: #
+Esse desafio foi feito no canal **"Spacelaxy"** no Discord. Todos os créditos à eles.<br/>
+**Link: https://discord.gg/spacelaxy**. 
+
+# Desafio "Protocolo Omega"
 
 ## 📖 História: 
-Você é o juiz de um tribunal do tempo, uma divisão de autoridade cronológica que registra os viajantes temporais e monitora as interferências deles em eventos históricos, correções autorizadas e também prisões por alteração indevida da linha do tempo.
+Em 2026, depois de um colapso diplomático com a federação intergaláctica, a Terra foi marcada como um planeta de risco. A agência MIB acionou o protocolo Omega. Esse protocolo exige uma triagem global pra achar supostos aliens disfarçados de humanos. Você precisa replicar esse protocolo seguindo as seguintes regras:
+
+---
+
+## Objetivo:
+O agente J solicitou que você criasse um relatório que retornasse uma tabela exatamente no seguinte modelo abaixo tanto em modelo de tabela quanto em modelo de objeto JSON, todos os dois modelos estão em ordem. 
+
+**(exemplo do relatório (saída dos dados)):** nome | idade | planeta | língua | pontuação de risco | nível de risco | comportamentos mais frequentes | alien (true ou false) </br>
+
+{
+  "name": "Zarlon Mekk",
+  "age": 153,
+  "planet": "Xandar",
+  "language": "Zorgonian",
+  "riskScore": 10,
+  "riskLevel": "Alto",
+  "frequentBehaviors": ["Suspicious", "Aggressive"],
+  "isAlien": true
+}
+</br>
 
 ---
 
 ## 🧐❓ O Que Fazer?
 
-**Pra facilitar sua vida, você resolveu criar uma API com as seguintes coisas:**
+**Você deverá usar uma .JSON para carregar os dados que estão no repositório do desafio (link: [text](https://gist.github.com/henrythierrydev/81ced785d8471aa02078966195143c2a)).** 
 
-**Etapa 1:** O sistema pode registrar viajantes temporais que podem ter uma reputação inicial de 100 por exemplo e um status de ativo ou inativo.<br/>
-**Etapa 2:** Registrar um evento histórico, com ano, descrição e era (Primitiva, Média, Tecnológica, Pós-Humana). Além de conseguir listar todos os eventos também e ter um sistema de filtro por era.<br/>
-**Etapa 3:** Registrar uma interferência temporal (correção ou modificação) de um viajante em um evento.<br/>
-**Etapa 4:** Negar automaticamente interferências de viajantes com reputação inferior a 30.<br/>
-**Etapa 5:** Aprovar automaticamente correções se o viajante tiver reputação maior que 90.<br/> 
-**Etapa 6:** Deixar em "análise" qualquer outra interferência fora dessas regras.<br/> 
-**Etapa 7:** Tem que ter como listar todas as viagens, mostrar os status delas e etc. E também ter como filtrar elas por viajantes e também listar todas as viagens de um viajante.<br/>
-**Etapa 8:** Reduzir reputação em -10 em caso de interferência negada.<br/>
-**Etapa 9:** Aumentar reputação em +5 para cada interferência aprovada.<br/> 
-**Etapa 10:** Além disso, pra finalizar, tem que ter como prender um viajante por 30 dias após as 3 interferências seguidas. Cada prisão deve ter um motivo e liberar ele automaticamente após a duração da prisão (ex: 30 dias) com cron job.<br/> 
+**1** - Primeiro, você deve fazer uma validação se todos os dados estão presentes em cada coisa e também verificar o tipo dele. Por exemplo, o dado birthDate deve sempre estar no formato dia-mês-ano. Você **não** pode usar bibliotecas para isso e deve usar a File System para carregar todos os dados. Cada campo no objeto dos dados deve ser validado conforme o exemplo no final da descrição. </br>
 
----
+**2** - A idade deve ser gerada com base na data de nascimento. </br>
 
-### Resumindo: 
-Em resumo, tem que ser um CRUD com todas as coisas de remover, registrar e etc. básicas e também um sistema de permissões por request, por exemplo, pra fazer uma viagem, só um viajante registrado e que não estiver preso pode fazer a viagem. Já com relação aos status, somente o juiz pode.<br/> 
+**3** - Pra gerar a pontuação de risco, você precisa fazer uma lógica com algumas validações básicas, que são essas abaixo:
+**3.1.** Caso o número de olhos seja acima ou igual a 4, então +3 pontos. </br>
+**3.2.** Caso a altura seja maior que 2m, então adiciona +2 pontos. </br>
+**3.3.** Caso ele fale Zorgonian, então adiciona +2 pontos. </br>
+**3.4.** Caso ele tenha mais de 120 anos, então adiciona +3 pontos. </br>
+**3.5.** Caso ele tenha tido algum comportamento no histórico de comportamentos que seja do tipo Suspicious, adiciona mais 2 pontos ou caso tenha tido um comportamento do tipo Aggressive, adiciona +2 pontos, ao mesmo tempo que se cada um se repetir 2 vezes no histórico, ignora totalmente a pontuação individual e adiciona +4 pontos. </br>
 
-Claro que tem que ter também uma rota pra realizar uma viagem pra um viajante, mas fica à disposição qualquer outra rota ou outra coisa que vocês quiserem adicionar, só precisa seguir as regras básicas desse desafio.<br/>
+**4** - Já pra gerar o nível de risco, vamos primeiro definir os níveis que são: baixo, médio e alto. Cada nível de risco tem uma lógica que segue essa base:
+**4.1.** **Baixo**: Entre 0 a 4 pontos. </br>
+**4.2.** **Médio**: Entre 5 e 8 pontos. </br>
+**4.3.** **Alto**: Acima de 8 pontos. </br>
 
-## ©️ Créditos: ##
-Esse desafio foi feito no canal **"Spacelaxy"** no Discord. Todos os créditos à eles.<br/>
-**Link: https://discord.gg/spacelaxy**. 
+**5** - Pra definir se ele é um alien ou não, vamos ter que procurar por **anomalias** e **padrões do comportamento**. Pra esse caso, vamos trabalhar também com numerações, que vão de 0 a 10, quanto mais próximo do 10, mais próximo de ser um alien você está:
+**5.1.** Se tiver mais de 2 comportamentos como Suspicious, vamos adicionar +5 pontos. </br>
+**5.2.** Os planetas Zebulon e Vega são as origens mais prováveis de alienígenas, já que todos os outros planetas incluindo a Terra são considerados como "da casa", então, caso ele venha de lá, +8 pontos. </br>
+**5.3.** Caso ele não tenha marcas biológicas comuns entre todos os planetas da casa, então adiciona +6 pontos. </br>
+**5.4.** Caso ele tenha mais ou menos de 2 olhos, então adiciona +2 pontos. </br>
