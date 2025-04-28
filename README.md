@@ -451,7 +451,7 @@ Produzir histórias, storyboards e sketches para atender os 15 entregáveis do "
 ---
 
 ### **1. Cadastrar Eventos** *(História 1)*
-![Diagrama Cadastrar Evento](./img/Cadastrar%20Evento/Captura%20de%20tela%202025-04-27%20153019.png)
+![Diagrama Cadastrar Evento](./img/Cadastrar%20Evento/Captura%20de%20tela%202025-04-27%20153026.png)
 
 ---
 
