@@ -445,3 +445,22 @@ Produzir histórias, storyboards e sketches para atender os 15 entregáveis do "
 ![Backlog jiro](./assets/BACKLOG%20sprint%201%20.png)
 
 --- 
+
+### Diagrama de Atividades do Sistema
+
+---
+
+### **1. Cadastrar Eventos** *(História 1)*
+![Diagrama Cadastrar Evento](./img/Cadastrar%20Evento/Captura%20de%20tela%202025-04-27%20153019.png)
+
+---
+
+### **2. Buscar Evento** *(História 2)*
+![Diagrama Buscar Evento](./img/buscarevento/Captura%20de%20tela%202025-04-27%20154212.png)
+
+---
+
+### **2. Mapeamento de Evento** *(História 3)*
+![Diagrama Mapeamento de Evento](./img/Mapeamento%20de%20Eventos/Captura%20de%20tela%202025-04-27%20170213.png)
+
+---
